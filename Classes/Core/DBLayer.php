@@ -47,11 +47,17 @@ class DBLayer
 
     public function fetch(\Doctrine\DBAL\Driver\Statement $res)
     {
+        if (!class_exists(\Doctrine\DBAL\FetchMode::class)) {
+            return $res->fetch(\PDO::FETCH_ASSOC);
+        }
         return $res->fetch(\Doctrine\DBAL\FetchMode::ASSOCIATIVE);
     }
 
     public function fetch_row(\Doctrine\DBAL\Driver\Statement $res)
     {
+        if (!class_exists(\Doctrine\DBAL\FetchMode::class)) {
+            return $res->fetch(\PDO::FETCH_ASSOC);
+        }
         return $res->fetch(\Doctrine\DBAL\FetchMode::ASSOCIATIVE);
     }
 
