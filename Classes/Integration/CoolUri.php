@@ -610,8 +610,7 @@ class CoolUri
         if (empty($params)) {
             return Array();
         }
-        foreach ($params as $k => $v) $params[$k] = $k . '=' . $v;
-        $qs = implode('&', $params);
+        $qs = \TYPO3\CMS\Core\Utility\GeneralUtility::implodeArrayForUrl('', $params);
         parse_str($qs, $output);
         return $output;
     }
