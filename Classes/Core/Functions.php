@@ -433,6 +433,7 @@ public static function specCharsToASCII($title) {
 
         // Convert some special tokens to the space character:
     $space = '-';
+    $processedTitle = str_replace('/','-',$processedTitle);
     $processedTitle = preg_replace('/[ -+_]+/', $space, $processedTitle); // convert spaces
 
         // Convert extended letters to ascii equivalents:
